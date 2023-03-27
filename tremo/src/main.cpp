@@ -6,19 +6,19 @@
 
 void ToggleThread(bool *toggle, const char key)
 {
-	while (true) {
-		if (GetAsyncKeyState(key) & 0x01) {
-			*toggle = !(*toggle);
+    while (true) {
+        if (GetAsyncKeyState(key) & 0x01) {
+            *toggle = !(*toggle);
 
             if (*toggle) {
-				std::cout << "INFO: On" << std::endl;
+                std::cout << "INFO: On" << std::endl;
             } else {
-				std::cout << "INFO: Off" << std::endl;
+                std::cout << "INFO: Off" << std::endl;
             }
-		}
+        }
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(2));
-	}
+        std::this_thread::sleep_for(std::chrono::milliseconds(2));
+    }
 }
 
 void TremoThread(const bool* toggle, const int interval)
@@ -35,7 +35,7 @@ void TremoThread(const bool* toggle, const int interval)
     UINT array_size = 1;
     int input_size = sizeof(INPUT);
 
-	UINT sent = 0;
+    UINT sent = 0;
 
     while (true) {
         if (*toggle) {
